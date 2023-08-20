@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 import '../Utils/mywidget.dart';
 
 void main() {
-  runApp(MaterialApp(
-    theme: ThemeData(
-      useMaterial3: true,
+  runApp(
+    MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
+      routes: {
+        'HomePage': (context) => const HomePage(),
+        // 'Detail': (context) => const Detail(),
+      },
     ),
-    debugShowCheckedModeBanner: false,
-    home: const HomePage(),
-    // home: const Test(),
-  ));
+  );
 }
 
 class HomePage extends StatefulWidget {
@@ -40,9 +45,6 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: [
             Posts(category: 'daily'),
-            // Posts(category: 'festival'),
-            // Posts(category: 'business'),
-            // Posts(category: 'general'),
           ],
         ),
       ),

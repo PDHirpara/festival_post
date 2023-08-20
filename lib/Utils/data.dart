@@ -5,7 +5,7 @@ List<Map<String, dynamic>> data = [
     'name': 'Today',
     'quote': 'What you do today can improve all your tomorrows',
     'image':
-        "https://images.hindustantimes.com/img/2021/06/02/1600x900/9a156550-c367-11eb-9d53-2d5cae187b44_1622619423185.jpg",
+        "https://.com/img/2021/06/02/1600x900/9a156550-c367-11eb-9d53-2d5cae187b44_1622619423185.jpg",
   },
   {
     'id': 2,
@@ -35,3 +35,5 @@ List<Map<String, dynamic>> data = [
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7KWxb-fbA9OxKGRsQCYtwPDGthItrO3mhbA&usqp=CAU",
   },
 ];
+
+List<String> name = ["Fonts", "Colors", "Images"];

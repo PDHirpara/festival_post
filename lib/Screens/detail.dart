@@ -1,156 +1,83 @@
-import 'package:festival_post/Utils/data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../Utils/data.dart';
 
-class Test extends StatefulWidget {
-  const Test({super.key});
+class Detail extends StatefulWidget {
+  final String category;
+  const Detail({super.key, required this.category});
 
   @override
-  State<Test> createState() => _TestState();
+  State<Detail> createState() => _DetailState();
 }
 
-class _TestState extends State<Test> {
+class _DetailState extends State<Detail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-          child: ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 200,
-                        width: 200,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: data.length,
-                            itemBuilder: (context, index) {
-                              return Row(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.all(20),
-                                    height: 100,
-                                    width: 100,
-                                    // decoration: BoxDecoration(
-                                    //     image: DecorationImage(
-                                    //         image: NetworkImage(
-                                    //             data.image[index]))),
-                                  ),
-                                ],
-                              );
-                            }),
+      backgroundColor: Colors.black87,
+      appBar: AppBar(
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            CupertinoIcons.back,
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Colors.black87,
+        title: Text(
+          widget.category,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+      body: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.30,
+            width: double.infinity,
+            margin: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+          ),
+          ListView.builder(
+            shrinkWrap: true,
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20),
+                    child: Text(
+                      name[index],
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
                     ),
-                  ],
-                );
-              })),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    color: Colors.white,
+                  )
+                ],
+              );
+            },
+          )
+        ],
+      ),
     );
   }
 }
-// Row(
-// children: [
-// Expanded(
-// child: SizedBox(
-// height: 200,
-// width: 200,
-// child: ListView.builder(
-// scrollDirection: Axis.horizontal,
-// itemCount: 3,
-// itemBuilder: (context, index) {
-// return Row(
-// children: [
-// Container(
-// padding: EdgeInsets.all(20),
-// height: 100,
-// width: 100,
-// color: Colors.red,
-// ),
-// SizedBox(
-// width: 10,
-// ),
-// Container(
-// padding: EdgeInsets.all(20),
-// height: 100,
-// width: 100,
-// color: Colors.blueAccent,
-// ),
-// SizedBox(
-// width: 10,
-// ),
-// ],
-// );
-// }),
-// ),
-// ),
-// ],
-// ),
-// Row(
-// children: [
-// Expanded(
-// child: SizedBox(
-// height: 200,
-// width: 200,
-// child: ListView.builder(
-// scrollDirection: Axis.horizontal,
-// itemCount: data.length,
-// itemBuilder: (context, index) {
-// return Row(
-// children: [
-// Container(
-// padding: EdgeInsets.all(20),
-// height: 100,
-// width: 100,
-// color: Colors.red,
-// ),
-// SizedBox(
-// width: 10,
-// ),
-// Container(
-// padding: EdgeInsets.all(20),
-// height: 100,
-// width: 100,
-// color: Colors.blueAccent,
-// ),
-// SizedBox(
-// width: 10,
-// ),
-// ],
-// );
-// }),
-// ),
-// ),
-// ],
-// ),
-// ListView.builder(
-// shrinkWrap: true,
-// physics: NeverScrollableScrollPhysics(),
-// // scrollDirection: Axis.horizontal,
-// itemCount: 3,
-// itemBuilder: (context, index) {
-// return Column(
-// children: [
-// Container(
-// padding: EdgeInsets.all(20),
-// height: 100,
-// width: 100,
-// color: Colors.red,
-// ),
-// SizedBox(
-// width: 10,
-// ),
-// Container(
-// padding: EdgeInsets.all(20),
-// height: 100,
-// width: 100,
-// color: Colors.blueAccent,
-// ),
-// SizedBox(
-// width: 10,
-// ),
-// ],
-// );
-// }),
